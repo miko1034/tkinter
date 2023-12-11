@@ -2,10 +2,13 @@ from tkinter import *
 
 
 def cpu():
-    infotext.set("Some information about the CPU blah blah blah blah blah blah blah blah blah. Hi Mr Clark")
+    print("Cpu pressed")
+    textvar.set("Some information about the CPU blah blah blah blah blah blah blah blah blah. Hi Mr Clark")
+    main_frame.configure(text=textvar.get())
     
 def fde():
-    infotext.set("Some informnation about the FDE cycle and stuff blah blah blah. Hello Mrs Brant")
+    print("Fde pressed")
+    textvar.set("Some informnation about the FDE cycle and stuff blah blah blah. Hello Mrs Brant")
 
 
 #creation of window
@@ -19,9 +22,9 @@ sidebutton_frame = Frame(window,bg="light blue")
 main_frame = Frame(window,highlightbackground="black",highlightthickness=1)
 
 #text
-infotext = StringVar()
-infotext.set("")
-info = Label(main_frame,height=400,width=300,bg="#A0E0F0",textvariable=infotext)
+textvar = StringVar()
+textvar.set("Hello")
+info = Label(main_frame,height=400,width=300,bg="#A0E0F0",fg="black",textvariable=textvar.get())
 info.place(x=0,y=0)
 
 #buttons
