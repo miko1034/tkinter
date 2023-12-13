@@ -3,12 +3,13 @@ from tkinter import *
 
 def cpu():
     print("Cpu pressed")
-    textvar.set("Some information about the CPU blah blah blah blah blah blah blah blah blah. Hi Mr Clark")
-    main_frame.configure(text=textvar.get())
-    
+    info.configure(text="Some information about the CPU blah blah blah blah blah blah blah blah blah. Hi Mr Clark")
+    info.update()
+
 def fde():
     print("Fde pressed")
-    textvar.set("Some informnation about the FDE cycle and stuff blah blah blah. Hello Mrs Brant")
+    info.configure(text="Some informnation about the FDE cycle and stuff blah blah blah. Hello Mrs Brant")
+    info.update()
 
 
 #creation of window
@@ -22,9 +23,7 @@ sidebutton_frame = Frame(window,bg="light blue")
 main_frame = Frame(window,highlightbackground="black",highlightthickness=1)
 
 #text
-textvar = StringVar()
-textvar.set("Hello")
-info = Label(main_frame,height=400,width=300,bg="#A0E0F0",fg="black",textvariable=textvar.get())
+info = Label(main_frame,height=400,width=300,fg="black",text="test",bg="#A0E0F0",justify=LEFT,wraplength=300)
 info.place(x=0,y=0)
 
 #buttons
@@ -33,7 +32,7 @@ cpu_button.place(x=20,y=10)
 fde_button = Button(sidebutton_frame, text="FDE Cycle", command=fde)
 fde_button.place(x=20,y=60)
 
-
+info.pack()
 
 
 #frame configurations
