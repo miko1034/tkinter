@@ -27,6 +27,7 @@ window.geometry("400x400")
 sidebutton_frame = Frame(window,bg="light blue")
 main_frame = Frame(window,highlightbackground="black",highlightthickness=1)
 
+
 #text
 info = Label(main_frame,height=400,width=300,fg="black",text="test",bg="#A0E0F0",justify=LEFT,wraplength=300)
 info.place(x=0,y=0)
