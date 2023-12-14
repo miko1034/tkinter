@@ -37,6 +37,9 @@ submit = Button(mainframe,text="Submit", bg="black",fg="white",font=("Rethink Sa
 submit.configure(width=40)
 submit.place(x=30,y=300)
 
+#carry on here with a pop up of some sorts or a label that tells the user
+#their info has been collected or an error occured.
+
 #packing of frames
 titleframe.pack(side=TOP)
 titleframe.pack_propagate(False)
