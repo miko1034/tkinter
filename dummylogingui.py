@@ -1,10 +1,12 @@
 from tkinter import *
+from tkinter import messagebox
 
 def loginsubmit():
     username = usernameinput.get()
     #i would put code to clear username but that usually doesnt happen on normal websites + its more convenient if it isnt cleared
     password = passwordinput.get()
     passwordinput.delete(0,END)
+    messagebox.showinfo("Entry","Your password and username have been collected")
     print(f"THe username is {username} and the password is {password}")
     pass
 
@@ -36,9 +38,6 @@ passwordinput.place(x=30,y=170)
 submit = Button(mainframe,text="Submit", bg="black",fg="white",font=("Rethink Sans", 10), command=loginsubmit)
 submit.configure(width=40)
 submit.place(x=30,y=300)
-
-#carry on here with a pop up of some sorts or a label that tells the user
-#their info has been collected or an error occured.
 
 #packing of frames
 titleframe.pack(side=TOP)
