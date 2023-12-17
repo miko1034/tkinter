@@ -1,30 +1,61 @@
 from tkinter import *
 
-#creation of window
+def infoget():
+    pass
+
+
+###creation of window
 window = Tk()
 window.title("Questionaire")
 window.geometry("400x500")
-#making frames
-lframe= Frame(window,bg="gray")
-rframe= Frame(window,bg="light gray")
-titleframe = Frame(window,bg="light blue",highlightbackground="black",highlightthickness=2)
+
+###making frames
+lframe= Frame(window,bg="black",highlightbackground="white",highlightthickness=2)
+rframe= Frame(window,bg="black",highlightbackground="white",highlightthickness=2)
+titleframe = Frame(window,bg="black",highlightbackground="white",highlightthickness=2)
+
+
 ###creation of objects
-#for title frame
-title = Label(titleframe,text="My Questionaire",bg="light blue",font=("Rethink Sans",20))
+
+##for title frame
+title = Label(titleframe,text="My Questionaire",bg="black",fg="white",font=("Rethink Sans",20))
 title.place(x=95,y=13)
-#for left side frame
-namelabel = Label(lframe,text="Name:",bg="light blue",font=("Rethink Sans", 12))
+
+##for left side frame
+#name
+namelabel = Label(lframe,text="Name:",bg="black",fg="white",font=("Rethink Sans", 12))
 namelabel.place(x=25,y=10)
-surnamelabel = Label(lframe,text="Surname:",bg="light blue", font=("Rethink Sans", 12))
+#surname
+surnamelabel = Label(lframe,text="Surname:",bg="black",fg="white", font=("Rethink Sans", 12))
 surnamelabel.place(x=25,y=50)
-agelabel = Label(lframe,text="Age:",bg="light blue", font=("Rethink Sans", 12))
+#age
+agelabel = Label(lframe,text="Age:",bg="black",fg="white", font=("Rethink Sans", 12))
 agelabel.place(x=25,y=90)
-hobbylabel = Label(lframe,text="Your Hobby:",bg="light blue", font=("Rethink Sans", 12))
+#hobby
+hobbylabel = Label(lframe,text="Your Hobby:",bg="black",fg="white", font=("Rethink Sans", 12))
 hobbylabel.place(x=25,y=130)
-genderlabel = Label(lframe,text="Your Gender:",bg="light blue", font=("Rethink Sans", 12))
+#gender
+genderlabel = Label(lframe,text="Your Gender:",bg="black",fg="white", font=("Rethink Sans", 12))
 genderlabel.place(x=25,y=250)
 
-#packing of frames
+##for right side frame
+nameinput = Entry(rframe,bg="#262626",fg="white",font=("Rethink Sans", 12),highlightbackground="white",highlightthickness=1)
+nameinput.place(x=23,y=10)
+surnameinput = Entry(rframe,bg="#262626",fg="white",font=("Rethink Sans", 12),highlightbackground="white",highlightthickness=1)
+surnameinput.place(x=23,y=50)
+ageVar = IntVar()
+agespin = Spinbox(rframe,textvariable=ageVar,from_=1,to=100,width=5,bg="#262626",fg="white",font=("Rethink Sans", 12),highlightbackground="white",highlightthickness=1)
+agespin.place(x=23,y=90)  
+hobbyinput = Entry(rframe,bg="#262626",fg="white",font=("Rethink Sans", 12),highlightbackground="white",highlightthickness=1)
+hobbyinput.place(x=23,y=130,width=190,height=100)
+genderVar= IntVar()
+genderrb = Radiobutton(rframe, text="Male", variable=genderVar, value=1,bg="#262626",fg="black",font=("Rethink Sans", 12),highlightbackground="white",highlightthickness=1)
+genderrb.place(x=23,y=250)
+rb = Radiobutton(rframe,text="Female", variable=genderVar,value=2,bg="#262626",fg="black",font=("Rethink Sans", 12),highlightbackground="white",highlightthickness=1)
+rb.place(x=23,y=290)
+
+
+###packing of frames
 titleframe.pack(side=TOP)
 lframe.pack(side=LEFT)
 rframe.pack(side=RIGHT)
