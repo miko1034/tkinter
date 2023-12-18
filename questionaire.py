@@ -1,8 +1,13 @@
 from tkinter import *
 
-def infoget():
-    pass
-
+def collectdata():
+    name = nameinput.get()
+    surname = surnameinput.get()
+    age = ageVar.get()
+    selectedgender = genderVar.get()
+    hobby = hobbyinput.get()
+    data = {"name":name,"surname":surname,"age":age,"selectedgender":selectedgender,"hobby":hobby}
+    print(data)
 
 ###creation of window
 window = Tk()
@@ -39,21 +44,28 @@ genderlabel = Label(lframe,text="Your Gender:",bg="black",fg="white", font=("Ret
 genderlabel.place(x=25,y=250)
 
 ##for right side frame
+#name
 nameinput = Entry(rframe,bg="#262626",fg="white",font=("Rethink Sans", 12),highlightbackground="white",highlightthickness=1)
 nameinput.place(x=23,y=10)
+#surname
 surnameinput = Entry(rframe,bg="#262626",fg="white",font=("Rethink Sans", 12),highlightbackground="white",highlightthickness=1)
 surnameinput.place(x=23,y=50)
+#age
 ageVar = IntVar()
 agespin = Spinbox(rframe,textvariable=ageVar,from_=1,to=100,width=5,bg="#262626",fg="white",font=("Rethink Sans", 12),highlightbackground="white",highlightthickness=1)
 agespin.place(x=23,y=90)  
+#hobby
 hobbyinput = Entry(rframe,bg="#262626",fg="white",font=("Rethink Sans", 12),highlightbackground="white",highlightthickness=1)
 hobbyinput.place(x=23,y=130,width=190,height=100)
-genderVar= IntVar()
-genderrb = Radiobutton(rframe, text="Male", variable=genderVar, value=1,bg="#262626",fg="black",font=("Rethink Sans", 12),highlightbackground="white",highlightthickness=1)
+#gender
+genderVar= StringVar()
+genderrb = Radiobutton(rframe, text="Male", variable=genderVar, value="male",bg="#262626",fg="#808080",font=("Rethink Sans", 12),highlightbackground="white",highlightthickness=1)
 genderrb.place(x=23,y=250)
-rb = Radiobutton(rframe,text="Female", variable=genderVar,value=2,bg="#262626",fg="black",font=("Rethink Sans", 12),highlightbackground="white",highlightthickness=1)
+rb = Radiobutton(rframe,text="Female", variable=genderVar,value="female",bg="#262626",fg="#808080",font=("Rethink Sans", 12),highlightbackground="white",highlightthickness=1)
 rb.place(x=23,y=290)
-
+#submit
+submit = Button(rframe,text="Submit",command=collectdata,width=17,bg="#262626",fg="white",font=("Rethink Sans", 12),highlightbackground="white",highlightthickness=1)
+submit.place(x=23,y=370)
 
 ###packing of frames
 titleframe.pack(side=TOP)
