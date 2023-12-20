@@ -6,29 +6,39 @@ a=50
 b=50
 x_vel = 5
 y_vel = 5
+key_down = False
 
-def on_keypress():
-    pass
-def on_keyrelease():
-    pass
-
-def move():
-    global x
-    global y
+def on_keypress(event):
+    global key_down
     global x_vel
     global y_vel
-    if x<0:
-        x_vel = 5
-    if x > 350:
+    if event.keysym == "Left":
+        key_down = True
         x_vel = -5
-    if y < 0:
-        y_vel = 5
-    if y > 250:
+        y_vel = 0
+    if event.keysym == "Right":
+        key_down = True
+        x_vel = 5
+        y_vel = 0
+    if event.keysym == "Up":
+        key_down = True
+        x_vel = 0
         y_vel = -5
-    canvas1.move(circle,x_vel,y_vel)
-    coordinates = canvas1.coords(circle)
-    x = coordinates[0]
-    y = coordinates[1]
+    if event.keysym == "Down":
+        key_down = True
+        x_vel = 0
+        y_vel = 5
+    
+def on_keyrelease():
+    global key_down
+    key_down = False
+
+def move():
+    global x_vel
+    global y_vel
+    global key_down
+    if key_down == True:
+        canvas1.move(circle, x_vel,y_vel)
     window.after(33,move)
 
 #window
