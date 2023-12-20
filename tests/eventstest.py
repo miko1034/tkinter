@@ -4,9 +4,13 @@ x=10
 y=10
 a=50
 b=50
-
 x_vel = 5
 y_vel = 5
+
+def on_keypress():
+    pass
+def on_keyrelease():
+    pass
 
 def move():
     global x
@@ -45,5 +49,8 @@ mainframe.configure(width=400,height=300)
 #run
 
 move()
+
+window.bind_all("<KeyPress>",on_keypress)
+window.bind_all("<KeyRelease>", on_keyrelease)
 
 window.mainloop()
